@@ -16,11 +16,9 @@ export default function Footer() {
               {HOSPITAL.tagline}
             </p>
             <p className="text-xs text-slate-500">
-              Reg. No: {HOSPITAL.registrationNo}
+              Registration details require confirmation before launch.
               <br />
-              {HOSPITAL.registeredWith}
-              <br />
-              Valid until: {HOSPITAL.validUntil}
+              Contact hospital management for verified legal information.
             </p>
           </div>
 
@@ -134,7 +132,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {HOSPITAL.name}. All rights reserved.
           </p>
           <p className="text-center sm:text-right px-3 py-1.5 rounded-full bg-slate-800 text-slate-400 font-medium">
-            ⚠️ Demo website — sample data only. Not a real hospital website.
+            Demo website — sample data only. Verify all contact and service information before use.
           </p>
         </div>
       </div>

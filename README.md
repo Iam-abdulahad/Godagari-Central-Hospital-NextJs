@@ -1,37 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Godagari Central Hospital
 
-## Getting Started
+Responsive informational website for Godagari Central Hospital, built with Next.js App Router, React, TypeScript, Tailwind CSS 4, and static typed data.
 
-First, run the development server:
+## Development
+
+Requirements: Node.js 20 or newer and npm.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Available checks:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Routes
 
-## Learn More
+- `/` home and doctor quick search
+- `/about` hospital overview
+- `/departments` and `/departments/[slug]`
+- `/doctors` and `/doctors/[slug]`
+- `/services`, `/facilities`, and `/notices` with `/notices/[slug]`
+- `/appointment` appointment request handoff to WhatsApp
+- `/emergency` and `/contact` with map and directions
 
-To learn more about Next.js, take a look at the following resources:
+## Content and launch checklist
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Site content is maintained in `data/`. Update `data/hospital.ts`, `departments.ts`, `doctors.ts`, `services.ts`, and `notices.ts` as hospital management confirms details. Doctor profiles, prices, schedules, phone numbers, registration information, address, and map location include demo or unverified content; do not publish or rely on them until confirmed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The appointment form validates in the browser and prepares a WhatsApp message using `phoneWhatsAppTel` from `data/hospital.ts`. The visitor must review and send the message; the site does not store submissions. Replace the placeholder WhatsApp number before enabling appointment requests. Avoid entering sensitive medical details in the optional note.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Godagari-Central-Hospital-NextJs
+Before production, verify all contact numbers and services, replace placeholder email/map links and metadata, supply approved notices, and run both lint and production build.

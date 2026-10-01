@@ -46,7 +46,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+        <nav className="hidden 2xl:flex items-center gap-1" aria-label="Main navigation">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -84,7 +84,7 @@ export default function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="lg:hidden p-2 rounded-xl text-ink-700 hover:bg-surface-muted transition-colors"
+          className="2xl:hidden p-2 rounded-xl text-ink-700 hover:bg-surface-muted transition-colors"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -95,7 +95,7 @@ export default function Header() {
 
       {/* Mobile nav sheet */}
       {open && (
-        <div className="lg:hidden fixed inset-0 top-16 z-40 bg-white overflow-y-auto">
+        <div className="2xl:hidden fixed inset-0 top-16 z-40 bg-white overflow-y-auto">
           <nav className="container-custom py-4 flex flex-col gap-1" aria-label="Mobile navigation">
             {navLinks.map((link) => (
               <Link

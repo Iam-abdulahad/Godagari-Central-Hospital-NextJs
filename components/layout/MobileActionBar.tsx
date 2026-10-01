@@ -6,7 +6,7 @@ import { HOSPITAL } from "@/data/hospital";
 
 export default function MobileActionBar() {
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-line shadow-lg pb-[env(safe-area-inset-bottom)]">
+    <nav aria-label="Quick contact" className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-line shadow-lg pb-[env(safe-area-inset-bottom)]">
       <div className="grid grid-cols-3 h-14">
         <a
           href={`tel:${HOSPITAL.phoneOfficeTel}`}
@@ -32,6 +32,6 @@ export default function MobileActionBar() {
           <span className="text-[11px] font-semibold">Appointment</span>
         </Link>
       </div>
-    </div>
+    </nav>
   );
 }

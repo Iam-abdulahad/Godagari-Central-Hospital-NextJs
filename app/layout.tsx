@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Hind_Siliguri, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -19,6 +19,13 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const hindSiliguri = Hind_Siliguri({
+  variable: "--font-hind",
+  subsets: ["bengali", "latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: `${HOSPITAL.name} — ${HOSPITAL.address}`,
@@ -34,7 +41,6 @@ export const metadata: Metadata = {
     "emergency",
     HOSPITAL.name,
   ],
-  metadataBase: new URL("https://godagari-central-hospital.example.com"),
   openGraph: {
     title: HOSPITAL.name,
     description: HOSPITAL.tagline,
@@ -49,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jakarta.variable} ${hindSiliguri.variable}`}>
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <Header />
         <main className="flex-1 pb-14 md:pb-0">{children}</main>
