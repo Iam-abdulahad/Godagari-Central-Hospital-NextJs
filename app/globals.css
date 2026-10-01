@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Primary - Teal */
+  --color-primary-50: #F0FDFA;
+  --color-primary-100: #CCFBF1;
+  --color-primary-500: #14B8A6;
+  --color-primary-600: #0D9488;
+  --color-primary-700: #0F766E;
+  --color-primary-900: #134E4A;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Accent */
+  --color-accent-500: #2563EB;
+
+  /* Emergency - Red (emergency ONLY) */
+  --color-emergency-50: #FEF2F2;
+  --color-emergency-500: #DC2626;
+  --color-emergency-700: #B91C1C;
+
+  /* Success */
+  --color-success-600: #16A34A;
+
+  /* Warning */
+  --color-warning-500: #F59E0B;
+
+  /* Ink / text */
+  --color-ink-900: #0F172A;
+  --color-ink-700: #334155;
+  --color-ink-500: #64748B;
+  --color-ink-300: #CBD5E1;
+
+  /* Surface */
+  --color-line: #E2E8F0;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F8FAFC;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), "Hind Siliguri", system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), sans-serif;
+
+  /* Custom animation */
+  --animate-pulse-ring: pulseRing 1.8s ease-out infinite;
+
+  @keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 rgba(220,38,38,0.45); }
+    100% { box-shadow: 0 0 0 12px rgba(220,38,38,0); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Base layer */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink-700);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--color-ink-900);
+    letter-spacing: -0.025em;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-primary-500);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Container utility */
+.container-custom {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }

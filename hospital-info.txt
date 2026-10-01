@@ -1,0 +1,91 @@
+GODAGARI CENTRAL HOSPITAL (গোদাগাড়ী সেন্ট্রাল হাসপাতাল)
+Hospital & Doctors Information — compiled 2026-10-01
+=========================================================
+
+SOURCES CHECKED
+---------------
+1. DIFE LIMA public report (Dept. of Inspection for Factories and Establishments)
+   https://lima.dife.gov.bd/public-report/establishment/154301
+   -> READ SUCCESSFULLY (data below)
+2. Facebook page (গোদাগাড়ী সেন্ট্রাল হাসপাতাল, page id 61575978015067)
+   -> COULD NOT BE READ. Facebook blocks automated access, so no posts, phone
+      numbers, services or doctor lists could be retrieved from it.
+   -> The Facebook page URL is also too long for the fetch tool.
+
+
+A. VERIFIED INFORMATION (from DIFE LIMA)
+----------------------------------------
+Name (English)        : Godagari Central Hospital
+Name (Bangla)         : গোদাগাড়ী সেন্ট্রাল হাসপাতাল
+Industrial sector     : Hospital (হাসপাতাল)
+Current status        : Registered (নিবন্ধিত)
+Validity / expiry     : 01 July 2027 (০১ জুলাই ২০২৭)
+License number        : 81-34-2-021-00004
+Registration number   : 81-34-2-021-00004
+Class                 : A (Industrial establishment / শিল্প প্রতিষ্ঠান)
+Total workers         : 12 + 10 = 22 (the page shows the split without labels)
+
+Address
+  House / area        : Shrimantapur (শ্রীমন্তপুর)
+  Upazila             : Godagari (গোদাগাড়ী)
+  District            : Rajshahi
+  Division            : Rajshahi
+
+Note: the DIFE page is a labour-inspection registration record. It does not
+list phone numbers, services, departments, doctors or visiting hours.
+
+
+B. NOT FOUND (needs to come from the hospital or the Facebook page)
+-------------------------------------------------------------------
+- Phone numbers (office / emergency / ambulance / appointment)
+- WhatsApp number, email, Facebook page link for buttons
+- Full street address and Google Maps location
+- Opening hours / OPD timing / emergency 24/7 status
+- Departments and services
+- Facilities and equipment (ICU, OT, lab, imaging, pharmacy, cabin, ambulance)
+- Doctor list: names, degrees, speciality, designation, visiting days and times,
+  chamber/room, fee
+- Notices, photos, logo
+
+
+C. DO NOT MIX UP (different hospitals in Godagari found while searching)
+------------------------------------------------------------------------
+- Godagari General Hospital — Dhaingpara Bazar (National Bank building), Godagari
+- Godagari Islami Hospital & Diagnostic Center — Abdullah Plaza (2nd floor), Chapai Road, Godagari
+- Godagari Model Hospital — Dhaingpara Bazar (next to BRTC counter), Godagari
+These are separate facilities. Their phone numbers and equipment must not be
+used on the Godagari Central Hospital website.
+
+
+D. DOCTOR TEMPLATE (fill in one block per doctor)
+-------------------------------------------------
+Name         :
+Degrees      :
+Speciality   :
+Department   :
+Designation  :
+Visiting days: (e.g. Sat, Mon, Wed)
+Time         : (e.g. 05:00 PM - 09:00 PM)
+Room         :
+Fee          :
+Phone        :
+Photo        : (file name)
+
+
+E. HOSPITAL DETAILS TEMPLATE
+----------------------------
+Tagline          :
+Office phone     :
+Emergency phone  :
+Ambulance phone  :
+Appointment/WhatsApp:
+Email            :
+Full address     :
+Google Maps link :
+Facebook link    :
+OPD hours        :
+Emergency        : 24/7? yes / no
+Departments      :
+Services         :
+Facilities       :
+Equipment        :

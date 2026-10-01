@@ -1,0 +1,52 @@
+import {
+  Stethoscope,
+  Baby,
+  HeartPulse,
+  Bone,
+  Heart,
+  Ear,
+  Eye,
+  Smile,
+  FlaskConical,
+  ScanLine,
+  Radiation,
+  Activity,
+  Siren,
+  Pill,
+  Syringe,
+  UserCheck,
+  ClipboardCheck,
+  DoorOpen,
+  BedDouble,
+  Armchair,
+  Ambulance,
+  type LucideIcon,
+} from "lucide-react";
+
+const iconMap: Record<string, LucideIcon> = {
+  Stethoscope,
+  Baby,
+  HeartPulse,
+  Bone,
+  Heart,
+  Ear,
+  Eye,
+  Smile,
+  FlaskConical,
+  ScanLine,
+  Radiation,
+  Activity,
+  Siren,
+  Pill,
+  Syringe,
+  UserCheck,
+  ClipboardCheck,
+  DoorOpen,
+  BedDouble,
+  Armchair,
+  Ambulance,
+};
+
+export function getIcon(name: string): LucideIcon {
+  return iconMap[name] || Stethoscope;
+}
