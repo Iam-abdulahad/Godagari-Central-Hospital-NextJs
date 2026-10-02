@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -29,74 +29,104 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  // Lock body scroll while the menu is open + close on Escape / when resized to desktop
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const mq = window.matchMedia("(min-width: 1536px)");
+    const onMq = () => mq.matches && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    mq.addEventListener("change", onMq);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+      mq.removeEventListener("change", onMq);
+    };
+  }, [open]);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-line">
-      <div className="container-custom flex items-center justify-between h-16 md:h-18">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-display font-bold text-primary-700 text-lg md:text-xl shrink-0"
-          aria-label={`${HOSPITAL.name} - Home`}
-        >
-          <span className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-primary-600 text-white flex items-center justify-center text-sm font-bold">
-            GCH
-          </span>
-          <span className="hidden sm:inline">{HOSPITAL.name}</span>
-          <span className="sm:hidden">GCH</span>
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden 2xl:flex items-center gap-1" aria-label="Main navigation">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "px-3 py-2 rounded-xl text-sm font-medium transition-colors",
-                pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
-                  ? "text-primary-700 bg-primary-50"
-                  : "text-ink-700 hover:text-primary-700 hover:bg-primary-50/50"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Desktop action buttons */}
-        <div className="hidden md:flex items-center gap-2">
-          <a
-            href={`tel:${HOSPITAL.phoneEmergencyTel}`}
-            className="inline-flex items-center gap-2 px-4 h-11 rounded-xl bg-emergency-500 text-white font-semibold text-sm hover:bg-emergency-700 transition-colors"
-            aria-label={`Call Emergency ${HOSPITAL.phoneEmergency}`}
-          >
-            <Siren size={18} />
-            Emergency
-          </a>
+    <>
+      <header className="sticky top-0 z-50 bg-white border-b border-line">
+        <div className="container-custom flex items-center justify-between h-16 md:h-18">
+          {/* Logo */}
           <Link
-            href="/appointment"
-            className="inline-flex items-center gap-2 px-4 h-11 rounded-xl bg-primary-600 text-white font-semibold text-sm hover:bg-primary-700 transition-colors"
+            href="/"
+            className="flex items-center gap-2 font-display font-bold text-primary-700 text-lg md:text-xl shrink-0"
+            aria-label={`${HOSPITAL.name} - Home`}
           >
-            <CalendarPlus size={18} />
-            Book Appointment
+            <span className="w-8 h-8 md:w-9 md:h-9 rounded-xl bg-primary-600 text-white flex items-center justify-center text-sm font-bold">
+              GCH
+            </span>
+            <span className="hidden sm:inline">{HOSPITAL.name}</span>
+            <span className="sm:hidden">GCH</span>
           </Link>
+
+          {/* Desktop nav */}
+          <nav
+            className="hidden 2xl:flex items-center gap-1"
+            aria-label="Main navigation"
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "px-3 py-2 rounded-xl text-sm font-medium transition-colors",
+                  pathname === link.href ||
+                    (link.href !== "/" && pathname.startsWith(link.href))
+                    ? "text-primary-700 bg-primary-50"
+                    : "text-ink-700 hover:text-primary-700 hover:bg-primary-50/50",
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Desktop action buttons */}
+          <div className="hidden md:flex items-center gap-2">
+            <a
+              href={`tel:${HOSPITAL.phoneEmergencyTel}`}
+              className="inline-flex items-center gap-2 px-4 h-11 rounded-xl bg-emergency-500 text-white font-semibold text-sm hover:bg-emergency-700 transition-colors"
+              aria-label={`Call Emergency ${HOSPITAL.phoneEmergency}`}
+            >
+              <Siren size={18} />
+              Emergency
+            </a>
+            <Link
+              href="/appointment"
+              className="inline-flex items-center gap-2 px-4 h-11 rounded-xl bg-primary-600 text-white font-semibold text-sm hover:bg-primary-700 transition-colors"
+            >
+              <CalendarPlus size={18} />
+              Book Appointment
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            className="2xl:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl text-ink-700 hover:bg-surface-muted active:bg-surface-muted transition-colors touch-manipulation"
+            onClick={() => setOpen((v) => !v)}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-
-        {/* Mobile menu button */}
-        <button
-          className="2xl:hidden p-2 rounded-xl text-ink-700 hover:bg-surface-muted transition-colors"
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
+      </header>
       {/* Mobile nav sheet */}
       {open && (
-        <div className="2xl:hidden fixed inset-0 top-16 z-40 bg-white overflow-y-auto">
-          <nav className="container-custom py-4 flex flex-col gap-1" aria-label="Mobile navigation">
+        <div
+          id="mobile-nav"
+          className="2xl:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-white overflow-y-auto overscroll-contain pb-24"
+        >
+          <nav
+            className="container-custom py-4 flex flex-col gap-1"
+            aria-label="Mobile navigation"
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -104,9 +134,10 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium transition-colors",
-                  pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
+                  pathname === link.href ||
+                    (link.href !== "/" && pathname.startsWith(link.href))
                     ? "text-primary-700 bg-primary-50"
-                    : "text-ink-700 hover:bg-surface-muted"
+                    : "text-ink-700 hover:bg-surface-muted",
                 )}
               >
                 {link.label}
@@ -150,6 +181,6 @@ export default function Header() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

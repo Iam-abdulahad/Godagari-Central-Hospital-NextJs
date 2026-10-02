@@ -1,6 +1,5 @@
 // ============================================================
-// Hospital contact & meta — change these values to update the
-// entire site. All phone numbers are DEMO placeholders.
+// Central hospital contact & meta configuration.
 // ============================================================
 
 export const HOSPITAL = {
@@ -14,42 +13,34 @@ export const HOSPITAL = {
   district: "Rajshahi",
   upazila: "Godagari",
 
-  // Phones — DEMO placeholders. Replace with real numbers.
   phoneOffice: "01XXX-XXXXXX",
   phoneEmergency: "01XXX-XXXXXX",
-  phoneWhatsApp: "01XXX-XXXXXX",
-  // For tel: links, strip the dash
+  phoneWhatsApp: "+8801795784766",
   phoneOfficeTel: "+8801XXXXXXXXX",
   phoneEmergencyTel: "+8801XXXXXXXXX",
-  phoneWhatsAppTel: "8801XXXXXXXXX", // wa.me format (no +)
+  phoneWhatsAppTel: "8801795784766",
 
   email: "info@example.com",
 
-  // Registration
   registrationNo: "81-34-2-021-00004",
   registeredWith: "DIFE (Dept. of Inspection for Factories & Establishments)",
   validUntil: "1 July 2027",
 
-  // Hours
   opdHours: "9:00 AM – 9:00 PM",
-  opdOpen: 9, // 24h format
+  opdOpen: 9,
   opdClose: 21,
   emergencyHours: "24/7",
 
-  // Map
+  // Google Maps location supplied for the hospital.
   googleMapsEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.5!2d88.33!3d24.47!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDI4JzEyLjAiTiA4OMKwMTknNDguMCJF!5e0!3m2!1sen!2sbd!4v1234567890",
-  googleMapsDirectionsUrl:
-    "https://www.google.com/maps/dir/?api=1&destination=24.47,88.33",
-  googleMapsUrl:
-    "https://www.google.com/maps/place/Godagari,+Rajshahi",
+  googleMapsDirectionsUrl: "https://maps.app.goo.gl/xM4JnTQfs6e85uev9",
+  googleMapsUrl: "https://maps.app.goo.gl/xM4JnTQfs6e85uev9",
 
-  // Social
   facebookUrl: "https://facebook.com/",
 
-  // Stats (real data only)
-  totalDoctors: 12,
-  totalDepartments: 8,
+  totalDoctors: 30,
+  totalDepartments: 10,
   totalStaff: 22,
   yearEstablished: 2021,
 } as const;
