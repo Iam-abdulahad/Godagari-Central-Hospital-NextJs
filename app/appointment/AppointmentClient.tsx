@@ -6,15 +6,14 @@ import AppointmentForm from "./AppointmentForm";
 
 function AppointmentContent() {
   const searchParams = useSearchParams();
-  const doctorId = searchParams.get("doctorId") ?? "";
-  const doctorName = searchParams.get("doctorName") ?? "";
+  const doctor = searchParams.get("doctor") ?? searchParams.get("doctorName") ?? searchParams.get("doctorId") ?? "";
+  const department = searchParams.get("department") ?? "";
 
   return (
     <div className="container-custom py-8 md:py-10">
-      {/* Pass searchParams values to your existing form/component */}
       <AppointmentForm
-        initialDoctorId={doctorId}
-        initialDoctorName={doctorName}
+        initialDoctor={doctor}
+        initialDepartment={department}
       />
     </div>
   );
