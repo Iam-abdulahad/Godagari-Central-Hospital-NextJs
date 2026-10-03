@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="images/hospital-front.png" alt="Godagari Central Hospital" width="100%" />
+<img src="https://i.ibb.co.com/zTNX00RL/Godagari-Central-Hospital-Showcase.png" alt="Godagari Central Hospital" width="100%" />
 
 # 🏥 Godagari Central Hospital
 
