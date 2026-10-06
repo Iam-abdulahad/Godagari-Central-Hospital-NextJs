@@ -6,7 +6,6 @@ import Footer from "@/components/layout/Footer";
 import MobileActionBar from "@/components/layout/MobileActionBar";
 import EmergencyFab from "@/components/layout/EmergencyFab";
 import { HOSPITAL } from "@/data/hospital";
-import { LanguageProvider } from "@/lib/i18n/LanguageProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -61,12 +60,9 @@ export default function RootLayout({
       className={`${inter.variable} ${jakarta.variable} ${hindSiliguri.variable}`}
     >
       <body className="min-h-screen flex flex-col font-sans antialiased">
-        <LanguageProvider>
-          <Header />
-          <main className="flex-1 pb-14 md:pb-0">{children}</main>
-          <Footer />
-        </LanguageProvider>
-
+        <Header />
+        <main className="flex-1 pb-14 md:pb-0">{children}</main>
+        <Footer />
         <MobileActionBar />
         <EmergencyFab />
       </body>
